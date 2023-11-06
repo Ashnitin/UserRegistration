@@ -8,7 +8,7 @@ public class UserRegistration {
     private String lastName;
     private String email;
     private String mobile;
-
+    private String password;
     public UserRegistration() {
     }
 
@@ -54,7 +54,21 @@ public class UserRegistration {
 
     public boolean validMobile(String mobile) {
         try {
-            if (Pattern.matches("^[9][1]{1,2}[//s// ][0-9]{10}$",mobile )) {
+            if (Pattern.matches("^[9][1]{1,2}[//s//][0-9]{10}$",mobile )) {
+                return true;
+            } else {
+                throw new UserRegistrationException("Enter Valid Mobile");
+            }
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+
+    }
+
+    public boolean valisPassword(String password) {
+        try {
+            if (Pattern.matches("^[a-zA-Z]{8}",password )) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid Mobile");

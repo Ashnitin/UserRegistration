@@ -24,6 +24,10 @@ public class UserRegistrationTest {
     public void givenPreDefinedMobileFormat(){
         boolean mobile=ob.validMobile("91 7796226982");
         Assertions.assertTrue(mobile);
-}
-
+    }
+    @Test
+    public void givenPasswordRule1(){
+        boolean pass=ob.valisPassword("aBcdEfgh");
+        Assertions.assertTrue(pass);
+    }
 }
