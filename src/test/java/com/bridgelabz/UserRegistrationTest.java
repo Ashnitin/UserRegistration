@@ -15,10 +15,6 @@ public class UserRegistrationTest {
         boolean lastName=ob.validLastName("Bankar");
         Assertions.assertTrue(lastName);
     }
-    @Test
-    public void givenValidEmail(){
-        boolean email=ob.validEmail("ashwini.bankar11@gmail.com");
-        Assertions.assertTrue(email);
-    }
+
 
 }

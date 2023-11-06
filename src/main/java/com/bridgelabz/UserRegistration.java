@@ -31,20 +31,7 @@ public class UserRegistration {
             if (Pattern.matches("[A-Z][A-Za-z]{2,}", lastName)) {
                 return true;
             } else {
-                throw new UserRegistrationException("Enter Valid LasttName");
-            }
-        } catch (UserRegistrationException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
-
-    public boolean validEmail(String email) {
-        try {
-            if (Pattern.matches("[a-z A-Z 0-9 _/-/.]+[@][a-z]+[/.][a-z]{2,3}",email )) {
-                return true;
-            } else {
-                throw new UserRegistrationException("Enter Valid Email");
+                throw new UserRegistrationException("Enter Valid LastName");
             }
         } catch (UserRegistrationException e) {
             System.out.println(e.getMessage());
