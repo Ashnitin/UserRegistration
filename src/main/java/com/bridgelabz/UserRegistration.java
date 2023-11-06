@@ -68,7 +68,7 @@ public class UserRegistration {
 
     public boolean valisPassword(String password) {
         try {
-            if (Pattern.matches("^[a-zA-Z]{8}",password )) {
+            if (Pattern.matches("^[a-zA-Z0-9]{8}$",password )) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid Mobile");
