@@ -7,6 +7,7 @@ public class UserRegistration {
     private String firstName;
     private String lastName;
     private String email;
+    private String mobile;
 
     public UserRegistration() {
     }
@@ -37,5 +38,31 @@ public class UserRegistration {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+    public boolean validEmail(String email) {
+        try {
+            if (Pattern.matches("[a-z A-Z 0-9 _/-/.]+[@][a-z]+[/.][a-z]{2,3}",email )) {
+                return true;
+            } else {
+                throw new UserRegistrationException("Enter Valid Email");
+            }
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean validMobile(String mobile) {
+        try {
+            if (Pattern.matches("^[9][1]{1,2}[//s// ][0-9]{10}$",mobile )) {
+                return true;
+            } else {
+                throw new UserRegistrationException("Enter Valid Mobile");
+            }
+        } catch (UserRegistrationException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+
     }
 }
