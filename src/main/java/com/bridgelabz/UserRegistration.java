@@ -41,7 +41,7 @@ public class UserRegistration {
     }
     public boolean validEmail(String email) {
         try {
-            if (Pattern.matches("[a-z A-Z 0-9 _/-/.]+[@][a-z]+[/.][a-z]{2,3}",email )) {
+            if (Pattern.matches("[a-z A-Z 0-9 _/-/.()+]+[@][a-z]+[/.][a-z]{2,3}",email )) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid Email");
