@@ -26,8 +26,8 @@ public class UserRegistrationTest {
         Assertions.assertTrue(mobile);
     }
     @Test
-    public void givenPasswordRule3(){
-        boolean pass=ob.valisPassword("7Bc49FgH");
+    public void givenPasswordRule4(){
+        boolean pass=ob.valisPassword("abCd5@8r*");
         Assertions.assertTrue(pass);
     }
 }
