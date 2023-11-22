@@ -29,7 +29,7 @@ public class UserRegistrationTest {
     }
     @Test
     public void givenPasswordRule4(){
-        boolean pass=ob.valisPassword("abCd58r78@");
+        boolean pass=ob.validPassword("abCd58r78@");
         Assertions.assertTrue(pass);
     }
     @ParameterizedTest

@@ -2,7 +2,9 @@ package com.bridgelabz;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+interface ValidateUserEntry{
+    boolean validate(String input);
+}
 public class UserRegistration {
     private String firstName;
     private String lastName;
@@ -14,8 +16,9 @@ public class UserRegistration {
 
 
     public boolean validFirstName(String firstName)  {
+        ValidateUserEntry validFirstName=fname->Pattern.matches("[A-Z][A-Za-z]{2,}",fname);
         try {
-            if(Pattern.matches("[A-Z][A-Za-z]{2,}",firstName)) {
+            if(validFirstName.validate(firstName)) {
                 return true;
             }
             else{
@@ -28,8 +31,9 @@ public class UserRegistration {
         return false;
     }
     public boolean validLastName(String lastName) {
+        ValidateUserEntry validLastName=lname->Pattern.matches("[A-Z][A-Za-z]{2,}", lname);
         try {
-            if (Pattern.matches("[A-Z][A-Za-z]{2,}", lastName)) {
+            if (validLastName.validate(lastName)) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid LastName");
@@ -40,8 +44,9 @@ public class UserRegistration {
         return false;
     }
     public boolean validEmail(String email) {
+        ValidateUserEntry validEmail=vEmail->Pattern.matches("[a-z A-Z 0-9 _/-/.()+]+[@][a-z]+[/.][a-z]{2,3}",vEmail );
         try {
-            if (Pattern.matches("[a-z A-Z 0-9 _/-/.()+]+[@][a-z]+[/.][a-z]{2,3}",email )) {
+            if (validEmail.validate(email)) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid Email");
@@ -53,8 +58,9 @@ public class UserRegistration {
     }
 
     public boolean validMobile(String mobile) {
+        ValidateUserEntry validMobile=vMobile->Pattern.matches("^[9]+[1]+\\s[0-9]{10}$",vMobile );
         try {
-            if (Pattern.matches("^[9]+[1]+\\s[0-9]{10}$",mobile )) {
+            if (validMobile.validate(mobile)) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid Mobile");
@@ -66,9 +72,10 @@ public class UserRegistration {
 
     }
 
-    public boolean valisPassword(String password) {
+    public boolean validPassword(String password) {
+        ValidateUserEntry validPass=vPass->Pattern.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$",vPass );
         try {
-            if (Pattern.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$",password )) {
+            if (validPass.validate(password)) {
                 return true;
             } else {
                 throw new UserRegistrationException("Enter Valid Email");
